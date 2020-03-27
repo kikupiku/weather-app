@@ -6,25 +6,31 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <input type="text" placeholder="city name" id="city-search">
-    <div class="container">
-      <img src="#" alt="" id="weather-icon">
-      <h1 id="city-name"></h1>
-      <p id="temperature"></p>
-      <p id="temp-feel"></p>
-      <div class="division-line"></div>
-      <div class="details-container">
-        <p id="min-temp"></p>
-        <p id="max-temp"></p>
-        <p id="humidity"></p>
-        <p id="wind"></p>
+    <div class="wrapper">
+      <input type="text" placeholder="city name" id="city-search">
+      <div class="container">
+        <div class="icon-description-wrapper">
+          <img src="#" alt="" id="weather-icon">
+          <p id="description"></p>
+        </div>
+        <h1 id="city-name"></h1>
+        <p id="temperature"></p>
+        <p id="temp-feel"></p>
+        <div class="division-line"></div>
+        <div class="details-container">
+          <p id="min-temp"></p>
+          <p id="max-temp"></p>
+          <p id="humidity"></p>
+          <p id="wind"></p>
+        </div>
+      </div>
+      <div class="temp-system-container">
+        <div class="temp-system" id="celsius">&#8451;</div>
+        <div class="temp-system" id="fahrenheit">&#8457;</div>
+        <div class="active-system"></div>
       </div>
     </div>
-    <div class="temp-system">
-      <div id="celsius">&#8451;</div>
-      <div id="fahrenheit">&#8457;</div>
-      <div class="active-system"></div>
-    </div>
+
     <script type="text/javascript" src="script.js"></script>
   </body>
 </html>

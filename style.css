@@ -1,26 +1,83 @@
 body {
   box-sizing: border-box;
-  background: url('https://media1.giphy.com/media/2AlpjchqgwIuc/giphy.gif');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
+.wrapper {
+  font-family: Arial, sans-serif;
+  margin: 50px auto 0 auto;
+  width: 30vw;
+  min-width: 460px;
+}
+
+input,
+.container,
+.temp-system-container {
+  border-radius: 5px;
+  position: relative;
+  margin: 0 auto 20px auto;
+}
+
 input {
   background: rgba(255,255,255,.8);
-  border-radius: 3px;
+  display: block;
   padding-left: 5px;
   padding-right: 5px;
+  width: 200px;
 }
 
 .container {
-  background: rgba(150,141,135,.76);
-  border-radius: 5px;
-  margin: 0 auto;
-  position: relative;
-  width: 40vw;
+  background: rgba(255,255,255,.40);
+  height: 400px;
+  width: 100%;
 }
 
-.temp-system {
+.icon-description-wrapper {
+  float: right;
+  margin-top: 42px;
+  position: relative;
+}
+
+#weather-icon {
+  position: absolute;
+  right: 30px;
+}
+
+#description {
+  font-size: 24px;
+  margin-right: 30px;
+  margin-top: 100px;
+}
+
+#city-name {
+  padding-top: 30px;
+  font-size: 26px;
+}
+
+#city-name,
+#temperature,
+#temp-feel {
+  margin-left: 30px;
+}
+
+#temperature {
+  font-weight: bold;
+  font-size: 80px;
+}
+
+#temp-feel {
+  margin-top: 5px;
+  font-size: 24px;
+}
+
+.division-line {
+  border-bottom: 2px solid rgb(103,91,100);
+  margin-top: 30px;
+  width: 100%;
+}
+
+.temp-system-container {
   width: 80px;
   display: flex;
   background: white;
@@ -30,6 +87,9 @@ input {
   position: absolute;
   background: yellow;
   width: 40px;
+  left: 0;
+  top: 0;
+  z-index: 10;
 }
 
 #celsius,
@@ -40,26 +100,6 @@ input {
 
 
 /* RESET --------------------------------------------------------------*/
-
-/* clear sky: https://media1.giphy.com/media/VxbvpfaTTo3le/giphy.gif */
-/* clear NIGHT sky: https://data.whicdn.com/images/303306624/original.gif */
-/* few clouds: https://media1.giphy.com/media/pRQmCJ4pMXftS/giphy.gif */
-/* few clouds NIGHT: https://media.giphy.com/media/AtK6cr1n21uY8/giphy.gif */
-/* scattered couds: https://data.whicdn.com/images/272241949/original.gif */
-/* scattered clouds NIGHT: https://i.pinimg.com/originals/6d/d0/84/6dd084a91a77db1bb147f78db22cb51d.gif */
-/* broken clouds: https://data.whicdn.com/images/311386781/original.gif */
-/* broken clouds NIGHT */
-/* showers: https://i.pinimg.com/originals/a4/fa/12/a4fa1253438edb2146cb1c6458d7d9dc.gif */
-/* NIGHT showers: https://media2.giphy.com/media/RHjyppvaMzJGU/source.gif */
-/* rainy: https://i.pinimg.com/originals/6f/2c/9f/6f2c9fdd7de3223063ad01bd53670a5d.gif */
-/* rainy NIGHT: https://i.pinimg.com/originals/52/46/2a/52462a9f57dad91c7d80384bf737346c.gif */
-/* stormy: https://data.whicdn.com/images/303275638/original.gif */
-/* stormy NIGHT: https://media0.giphy.com/media/3o7TKs9TQX323TdQeA/source.gif */
-/* snowy: https://media.giphy.com/media/lMr6k5bqTTioM/giphy.gif */
-/* snowy NIGHT: https://media2.giphy.com/media/Jr0uBlFYhqNA4/giphy.gif */
-/* foggy: https://thumbs.gfycat.com/LightHospitableDoe-size_restricted.gif */
-/* foggy NIGHT: https://media1.giphy.com/media/2AlpjchqgwIuc/giphy.gif */
-
 
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
