@@ -17,7 +17,7 @@ async function getWeather(city) {
   }
 }
 
-getWeather('Berlin');
+getWeather('Wolomin');
 
 function populateContainer(data) {
   const body = document.querySelector('body');
@@ -30,6 +30,7 @@ function populateContainer(data) {
   const maxTemp = document.getElementById('max-temp');
   const humidity = document.getElementById('humidity');
   const wind = document.getElementById('wind');
+  const pressure = document.getElementById('pressure');
 
   code = data.weather[0].icon;
   switch (code) {
@@ -93,15 +94,23 @@ function populateContainer(data) {
   if (system === 'celsius') {
     temperature.innerHTML = roundTemperatureDigits(data.main.temp).rounded + '&deg;C';
     tempFeel.innerHTML = 'Feels like ' + roundTemperatureDigits(data.main.feels_like).rounded + '&deg;C';
+    minTemp.innerHTML = 'Minimum: ' + roundTemperatureDigits(data.main.temp_min).rounded + '&deg;C';
+    maxTemp.innerHTML = 'Maximum: ' + roundTemperatureDigits(data.main.temp_max).rounded + '&deg;C';
   } else {
     let fahrenheitTemp = celsiusToFahrenheit(data.main.temp).fahrenheit;
     temperature.innerHTML =  roundTemperatureDigits(fahrenheitTemp).rounded + '&deg;F';
     let fahrenheitFeel = celsiusToFahrenheit(data.main.feels_like).fahrenheit;
     tempFeel.innerHTML = 'Feels like ' + roundTemperatureDigits(fahrenheitFeel).rounded + '&deg;F';
+    let fahrenheitMin = celsiusToFahrenheit(data.main.temp_min).fahrenheit;
+    minTemp.innerHTML = 'Minimum: ' + roundTemperatureDigits(fahrenheitMin).rounded + '&deg;F';
+    let fahrenheitMax = celsiusToFahrenheit(data.main.temp_max).fahrenheit;
+    maxTemp.innerHTML = 'Maximum: ' + roundTemperatureDigits(fahrenheitMax).rounded + '&deg;F';
   }
 
   description.innerHTML = data.weather[0].description;
-
+  humidity.innerHTML = 'Humidity: ' + data.main.humidity + '%';
+  wind.innerHTML = 'Wind speed: ' + data.wind.speed + ' m/s';
+  pressure.innerHTML = 'Atmospheric pressure: ' + data.main.pressure + 'hPa';
 }
 
 function roundTemperatureDigits(num) {

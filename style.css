@@ -48,6 +48,8 @@ input {
   font-size: 24px;
   margin-right: 30px;
   margin-top: 100px;
+  max-width: 150px;
+  text-align: right;
 }
 
 #city-name {
@@ -75,6 +77,26 @@ input {
   border-bottom: 2px solid rgb(103,91,100);
   margin-top: 30px;
   width: 100%;
+}
+
+.detail {
+  color: rgb(59,53,57);
+  margin-left: 30px;
+  margin-top: 30px;
+  font-size: 20px;
+  display: inline-block;
+  font-weight: bold;
+}
+
+#max-temp,
+#wind {
+  float: right;
+  margin-right: 30px;
+}
+
+#pressure {
+  text-align: center;
+  display: block;
 }
 
 .temp-system-container {
