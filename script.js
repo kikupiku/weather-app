@@ -184,6 +184,3 @@ function celsiusToFahrenheit(num) {
   let fahrenheit = (Number(num) * 9 / 5 + 32);
   return { fahrenheit };
 }
-
-// // TODO:
-// make page look good on mobile

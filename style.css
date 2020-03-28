@@ -1,18 +1,22 @@
+/* prefixed by https://autoprefixer.github.io (PostCSS: v7.0.26, autoprefixer: v9.7.3) */
+
+
 html {
   height: 100%;
 }
 
 body {
-  box-sizing: border-box;
   background-repeat: no-repeat;
   background-size: cover;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .wrapper {
   font-family: Arial, sans-serif;
   margin: 50px auto 0 auto;
-  width: 30vw;
   min-width: 460px;
+  width: 30vw;
 }
 
 .search-container {
@@ -46,19 +50,19 @@ input:focus {
 }
 
 button {
-  width: 40px;
   display: inline-block;
+  width: 40px;
 }
 
 #error-message {
-  text-align: center;
-  margin-top: 5px;
-  border-radius: 5px;
-  padding: 10px;
-  color: rgb(73,32,32);
   background: rgb(166,71,71,0.5);
+  border-radius: 5px;
+  color: rgb(73,32,32);
   display: none;
   font-weight: bold;
+  margin-top: 5px;
+  padding: 10px;
+  text-align: center;
 }
 
 .container {
@@ -79,17 +83,21 @@ button {
 }
 
 #description {
-  font-size: 24px;
   margin-right: 30px;
   margin-top: 100px;
   max-width: 150px;
   text-align: right;
 }
 
+#description,
+#temp-feel {
+  font-size: 24px;
+}
+
 #city-name {
-  padding-top: 30px;
-  font-size: 26px;
   display: inline-block;
+  font-size: 26px;
+  padding-top: 30px;
 }
 
 #city-name,
@@ -99,13 +107,12 @@ button {
 }
 
 #temperature {
-  font-weight: bold;
   font-size: 80px;
+  font-weight: bold;
 }
 
 #temp-feel {
   margin-top: 5px;
-  font-size: 24px;
 }
 
 .division-line {
@@ -116,11 +123,11 @@ button {
 
 .detail {
   color: rgb(59,53,57);
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
   margin-left: 30px;
   margin-top: 30px;
-  font-size: 20px;
-  display: inline-block;
-  font-weight: bold;
 }
 
 #max-temp,
@@ -130,33 +137,37 @@ button {
 }
 
 #pressure {
-  text-align: center;
   display: block;
+  text-align: center;
 }
 
 .temp-system-container {
-  width: 80px;
-  display: flex;
   background: rgba(255,255,255,.57);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80px;
 }
 
 .active-system {
-  position: absolute;
-  border-radius: 5px;
   background: rgba(233,233,233);
-  width: 40px;
+  border-radius: 5px;
   height: 100%;
   left: 0;
+  position: absolute;
   top: 0;
-  z-index: 10;
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
   transition: 0.3s;
+  width: 40px;
+  z-index: 10;
 }
 
 #celsius,
 #fahrenheit {
-  width: 40px;
-  text-align: center;
   background: transparent;
+  text-align: center;
+  width: 40px;
   z-index: 11;
 }
 
@@ -171,8 +182,8 @@ button {
   }
 
   .wrapper {
-    width: 95vw !important;
     min-width: 95vw;
+    width: 95vw !important;
   }
 
   .container {
@@ -201,8 +212,8 @@ button {
   }
 
   #weather-icon {
-    top: -30px;
     right: 5px;
+    top: -30px;
   }
 
   #pressure {
@@ -235,12 +246,12 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
 	margin: 0;
 	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
