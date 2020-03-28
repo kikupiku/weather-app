@@ -15,7 +15,7 @@ async function getWeather(city) {
   }
 }
 
-getWeather('Wolomin');
+getWeather('Neuss');
 
 function populateContainer(data) {
   const body = document.querySelector('body');
@@ -31,6 +31,7 @@ function populateContainer(data) {
   const pressure = document.getElementById('pressure');
 
   code = data.weather[0].icon;
+  console.log(code);
   switch (code) {
     case '01d':
       body.style.backgroundImage = 'url(\'https://media1.giphy.com/media/VxbvpfaTTo3le/giphy.gif\')';
@@ -66,7 +67,7 @@ function populateContainer(data) {
       body.style.backgroundImage = 'url(\'https://media.giphy.com/media/AtK6cr1n21uY8/giphy.gif\')';
     break;
     case '03n':
-      body.style.backgroundImage = 'https://66.media.tumblr.com/be2436ce9f58714f92565635593307f4/tumblr_o1mh02rKYr1tqou9go1_500.gif\')';
+      body.style.backgroundImage = 'url(\'https://i.pinimg.com/originals/bd/2f/d5/bd2fd5e1c0dc8e485b184546a2e4c000.gif\')';
     break;
     case '04n':
       body.style.backgroundImage = 'url(\'https://thumbs.gfycat.com/ExcitableImperturbableEmperorshrimp-size_restricted.gif\')';
