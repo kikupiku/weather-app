@@ -102,22 +102,32 @@ input {
 .temp-system-container {
   width: 80px;
   display: flex;
-  background: white;
+  background: rgba(255,255,255,.57);
 }
 
 .active-system {
   position: absolute;
-  background: yellow;
+  border-radius: 5px;
+  background: rgba(233,233,233);
   width: 40px;
+  height: 100%;
   left: 0;
   top: 0;
   z-index: 10;
+  transition: 1s;
 }
 
 #celsius,
 #fahrenheit {
   width: 40px;
   text-align: center;
+  background: transparent;
+  z-index: 11;
+}
+
+#celsius:hover,
+#fahrenheit:hover {
+  cursor: pointer;
 }
 
 

@@ -1,4 +1,3 @@
-let system = 'celsius';
 let code = '02d';
 
 async function getWeather(city) {
@@ -8,7 +7,6 @@ async function getWeather(city) {
       });
     const data = await response.json();
     populateContainer(data);
-    console.log(data);
     return {
       data,
     };
@@ -91,20 +89,41 @@ function populateContainer(data) {
   }
   weatherIcon.src = `http://openweathermap.org/img/wn/${code}@2x.png`;
   cityName.innerHTML = data.name;
-  if (system === 'celsius') {
+
+  let systemCorF = 'celsius';
+  const active = document.getElementById('active');
+  const celsius = document.getElementById('celsius');
+  const fahrenheit = document.getElementById('fahrenheit');
+  const systems = [celsius, fahrenheit];
+
+  systems.forEach((system) => {
+    system.addEventListener('click', () => {
+      if (system === systems[1]) {
+        active.style.transform = 'translateX(40px)';
+        let fahrenheitTemp = celsiusToFahrenheit(data.main.temp).fahrenheit;
+        temperature.innerHTML =  roundTemperatureDigits(fahrenheitTemp).rounded + '&deg;F';
+        let fahrenheitFeel = celsiusToFahrenheit(data.main.feels_like).fahrenheit;
+        tempFeel.innerHTML = 'Feels like ' + roundTemperatureDigits(fahrenheitFeel).rounded + '&deg;F';
+        let fahrenheitMin = celsiusToFahrenheit(data.main.temp_min).fahrenheit;
+        minTemp.innerHTML = 'Minimum: ' + roundTemperatureDigits(fahrenheitMin).rounded + '&deg;F';
+        let fahrenheitMax = celsiusToFahrenheit(data.main.temp_max).fahrenheit;
+        maxTemp.innerHTML = 'Maximum: ' + roundTemperatureDigits(fahrenheitMax).rounded + '&deg;F';
+      } else {
+        active.style.transform = 'translateX(0px)';
+        systemCorF = 'celsius';
+        temperature.innerHTML = roundTemperatureDigits(data.main.temp).rounded + '&deg;C';
+        tempFeel.innerHTML = 'Feels like ' + roundTemperatureDigits(data.main.feels_like).rounded + '&deg;C';
+        minTemp.innerHTML = 'Minimum: ' + roundTemperatureDigits(data.main.temp_min).rounded + '&deg;C';
+        maxTemp.innerHTML = 'Maximum: ' + roundTemperatureDigits(data.main.temp_max).rounded + '&deg;C';
+      }
+    });
+  });
+
+  if (systemCorF === 'celsius') {
     temperature.innerHTML = roundTemperatureDigits(data.main.temp).rounded + '&deg;C';
     tempFeel.innerHTML = 'Feels like ' + roundTemperatureDigits(data.main.feels_like).rounded + '&deg;C';
     minTemp.innerHTML = 'Minimum: ' + roundTemperatureDigits(data.main.temp_min).rounded + '&deg;C';
     maxTemp.innerHTML = 'Maximum: ' + roundTemperatureDigits(data.main.temp_max).rounded + '&deg;C';
-  } else {
-    let fahrenheitTemp = celsiusToFahrenheit(data.main.temp).fahrenheit;
-    temperature.innerHTML =  roundTemperatureDigits(fahrenheitTemp).rounded + '&deg;F';
-    let fahrenheitFeel = celsiusToFahrenheit(data.main.feels_like).fahrenheit;
-    tempFeel.innerHTML = 'Feels like ' + roundTemperatureDigits(fahrenheitFeel).rounded + '&deg;F';
-    let fahrenheitMin = celsiusToFahrenheit(data.main.temp_min).fahrenheit;
-    minTemp.innerHTML = 'Minimum: ' + roundTemperatureDigits(fahrenheitMin).rounded + '&deg;F';
-    let fahrenheitMax = celsiusToFahrenheit(data.main.temp_max).fahrenheit;
-    maxTemp.innerHTML = 'Maximum: ' + roundTemperatureDigits(fahrenheitMax).rounded + '&deg;F';
   }
 
   description.innerHTML = data.weather[0].description;
@@ -121,4 +140,9 @@ function roundTemperatureDigits(num) {
 function celsiusToFahrenheit(num) {
   let fahrenheit = (Number(num) * 9 / 5 + 32);
   return { fahrenheit };
+}
+
+function toggleTempSystem() {
+
+  return { systemCorF };
 }
