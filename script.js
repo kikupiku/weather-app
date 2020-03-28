@@ -2,10 +2,11 @@ let code = '02d';
 
 async function getWeather(city) {
   try {
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=fb240456c5904bbec4f1ec517bf562e9`, {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=fb240456c5904bbec4f1ec517bf562e9`, {
         mode: 'cors',
       });
     const data = await response.json();
+    console.log(data);
     populateContainer(data);
     return {
       data,
@@ -15,7 +16,7 @@ async function getWeather(city) {
   }
 }
 
-getWeather('Neuss');
+getWeather('Maastricht');
 
 function populateContainer(data) {
   const body = document.querySelector('body');
@@ -147,3 +148,8 @@ function toggleTempSystem() {
 
   return { systemCorF };
 }
+
+
+// // TODO: figure out why github pages doesn't work
+// code the search bar
+// make page look good on mobile
