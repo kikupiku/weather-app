@@ -1,4 +1,5 @@
 let code = '02d';
+let city = 'Warsaw';
 
 async function getWeather(city) {
   try {
@@ -16,7 +17,25 @@ async function getWeather(city) {
   }
 }
 
-getWeather('Maastricht');
+function getCity() {
+  const input = document.querySelector('input');
+  const button = document.querySelector('button');
+  button.addEventListener('click', () => {
+    city = input.value;
+    getWeather(city);
+    input.value = '';
+  });
+  input.addEventListener('keyup', (e) => {
+    if (e.keyCode === 13) {
+      city = input.value;
+      getWeather(city);
+      input.value = '';
+    }
+  });
+}
+
+getWeather(city);
+getCity();
 
 function populateContainer(data) {
   const body = document.querySelector('body');
@@ -32,7 +51,6 @@ function populateContainer(data) {
   const pressure = document.getElementById('pressure');
 
   code = data.weather[0].icon;
-  console.log(code);
   switch (code) {
     case '01d':
       body.style.backgroundImage = 'url(\'https://media1.giphy.com/media/VxbvpfaTTo3le/giphy.gif\')';
@@ -144,12 +162,7 @@ function celsiusToFahrenheit(num) {
   return { fahrenheit };
 }
 
-function toggleTempSystem() {
-
-  return { systemCorF };
-}
-
-
-// // TODO: figure out why github pages doesn't work
+// // TODO:
 // code the search bar
 // make page look good on mobile
+// catch 404 error
