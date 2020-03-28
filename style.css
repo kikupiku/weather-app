@@ -17,7 +17,7 @@ body {
 
 .search-container {
   margin: 0 auto 20px auto;
-  width: 260px;
+  width: 259px;
 }
 
 input,
@@ -48,6 +48,16 @@ input:focus {
 button {
   width: 40px;
   display: inline-block;
+}
+
+#error-message {
+  text-align: center;
+  margin-top: 5px;
+  border-radius: 5px;
+  padding: 10px;
+  color: rgb(166,71,71);
+  background: rgb(166,71,71,0.2);
+  display: none;
 }
 
 .container {
@@ -154,7 +164,11 @@ button {
   cursor: pointer;
 }
 
-@media screen and (max-width: 667px) {
+@media screen and (max-width: 480px) {
+  input {
+    height: 16px;
+  }
+
   .wrapper {
     width: 95vw !important;
     min-width: 95vw;
@@ -192,6 +206,10 @@ button {
 
   #pressure {
     padding-bottom: 30px;
+  }
+
+  .temp-system {
+    padding-top: 3px;
   }
 }
 

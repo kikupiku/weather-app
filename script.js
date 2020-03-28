@@ -3,21 +3,24 @@ let city = 'Warsaw';
 let systemCorF = 'celsius';
 
 async function getWeather(city) {
+  const errorMessage = document.getElementById('error-message');
   try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=fb240456c5904bbec4f1ec517bf562e9`, {
         mode: 'cors',
       });
     if (response.ok) { // if HTTP-status is 200-299
+      errorMessage.style.display = 'none';
       const data = await response.json();
       populateContainer(data);
       return {
         data,
       };
     } else {
-      alert('Error: ' + response.status + ', please check if you searched an existing city.');
+      errorMessage.innerHTML = 'Error: ' + response.status + ` for ${city}, please check if you searched an existing city.`;
+      errorMessage.style.display = 'block';
     }
   } catch (error) {
-    alert('sorry', error);
+    errorMessage.innerHTML = 'Sorry, ', error;
   }
 }
 
