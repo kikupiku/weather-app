@@ -1,5 +1,6 @@
 let code = '02d';
 let city = 'Warsaw';
+let systemCorF = 'celsius';
 
 async function getWeather(city) {
   try {
@@ -110,7 +111,6 @@ function populateContainer(data) {
   weatherIcon.src = `http://openweathermap.org/img/wn/${code}@2x.png`;
   cityName.innerHTML = data.name + ', ' + data.sys.country;
 
-  let systemCorF = 'celsius';
   const active = document.getElementById('active');
   const celsius = document.getElementById('celsius');
   const fahrenheit = document.getElementById('fahrenheit');
@@ -119,6 +119,7 @@ function populateContainer(data) {
   systems.forEach((system) => {
     system.addEventListener('click', () => {
       if (system === systems[1]) {
+        systemCorF = 'fahrenheit';
         active.style.transform = 'translateX(40px)';
         let fahrenheitTemp = celsiusToFahrenheit(data.main.temp).fahrenheit;
         temperature.innerHTML =  roundTemperatureDigits(fahrenheitTemp).rounded + '&deg;F';
@@ -166,3 +167,4 @@ function celsiusToFahrenheit(num) {
 // code the search bar
 // make page look good on mobile
 // catch 404 error
+// fix bug with toggling system for new city
