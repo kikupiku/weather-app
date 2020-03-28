@@ -88,7 +88,7 @@ function populateContainer(data) {
     break;
   }
   weatherIcon.src = `http://openweathermap.org/img/wn/${code}@2x.png`;
-  cityName.innerHTML = data.name;
+  cityName.innerHTML = data.name + ', ' + data.sys.country;
 
   let systemCorF = 'celsius';
   const active = document.getElementById('active');
@@ -128,7 +128,7 @@ function populateContainer(data) {
 
   description.innerHTML = data.weather[0].description;
   humidity.innerHTML = 'Humidity: ' + data.main.humidity + '%';
-  wind.innerHTML = 'Wind speed: ' + data.wind.speed + ' m/s';
+  wind.innerHTML = 'Wind: ' + data.wind.speed + 'm/s';
   pressure.innerHTML = 'Atmospheric pressure: ' + data.main.pressure + 'hPa';
 }
 
