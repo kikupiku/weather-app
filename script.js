@@ -7,14 +7,17 @@ async function getWeather(city) {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=fb240456c5904bbec4f1ec517bf562e9`, {
         mode: 'cors',
       });
-    const data = await response.json();
-    console.log(data);
-    populateContainer(data);
-    return {
-      data,
-    };
+    if (response.ok) { // if HTTP-status is 200-299
+      const data = await response.json();
+      populateContainer(data);
+      return {
+        data,
+      };
+    } else {
+      alert('Error: ' + response.status + ', please check if you searched an existing city.');
+    }
   } catch (error) {
-    console.log('sorry', error);
+    alert('sorry', error);
   }
 }
 
@@ -164,7 +167,4 @@ function celsiusToFahrenheit(num) {
 }
 
 // // TODO:
-// code the search bar
 // make page look good on mobile
-// catch 404 error
-// fix bug with toggling system for new city
