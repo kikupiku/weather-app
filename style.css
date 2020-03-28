@@ -55,9 +55,10 @@ button {
   margin-top: 5px;
   border-radius: 5px;
   padding: 10px;
-  color: rgb(166,71,71);
-  background: rgb(166,71,71,0.2);
+  color: rgb(73,32,32);
+  background: rgb(166,71,71,0.5);
   display: none;
+  font-weight: bold;
 }
 
 .container {

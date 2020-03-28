@@ -1,26 +1,43 @@
+const body = document.querySelector('body');
+
 let code = '02d';
 let city = 'Warsaw';
 let systemCorF = 'celsius';
 
 async function getWeather(city) {
   const errorMessage = document.getElementById('error-message');
+  const container = document.getElementById('container');
+  const tempSystemContainer = document.getElementById('temp-system-container');
+
   try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&APPID=fb240456c5904bbec4f1ec517bf562e9`, {
         mode: 'cors',
       });
     if (response.ok) { // if HTTP-status is 200-299
       errorMessage.style.display = 'none';
+      container.style.display = 'block';
+      tempSystemContainer.style.display = 'flex';
       const data = await response.json();
       populateContainer(data);
       return {
         data,
       };
-    } else {
+    } else if (response.status === 404) {
       errorMessage.innerHTML = 'Error: ' + response.status + ` for ${city}, please check if you searched an existing city.`;
       errorMessage.style.display = 'block';
+
+    } else {
+      body.style.backgroundImage = 'url(\'https://media3.giphy.com/media/ULKnZ7hW07rlS/giphy.gif\')';
+      errorMessage.innerHTML = 'Error: ' + response.statusText;
+      errorMessage.style.display = 'block';
+      container.style.display = 'none';
+      tempSystemContainer.style.display = 'none';
     }
   } catch (error) {
-    errorMessage.innerHTML = 'Sorry, ', error;
+    errorMessage.innerHTML = 'Sorry, you probably lost your Internet connection', error;
+    errorMessage.style.display = 'block';
+    container.style.display = 'none';
+    tempSystemContainer.style.display = 'none';
   }
 }
 
@@ -45,7 +62,6 @@ getWeather(city);
 getCity();
 
 function populateContainer(data) {
-  const body = document.querySelector('body');
   const weatherIcon = document.getElementById('weather-icon');
   const cityName = document.getElementById('city-name');
   const temperature = document.getElementById('temperature');
