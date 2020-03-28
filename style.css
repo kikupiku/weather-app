@@ -15,12 +15,6 @@ body {
   min-width: 460px;
 }
 
-@media screen and (max-width: 540px) {
-  .wrapper {
-    width: 90vw;
-  }
-}
-
 .search-container {
   margin: 0 auto 20px auto;
   width: 260px;
@@ -84,6 +78,7 @@ button {
 #city-name {
   padding-top: 30px;
   font-size: 26px;
+  display: inline-block;
 }
 
 #city-name,
@@ -157,6 +152,47 @@ button {
 #celsius:hover,
 #fahrenheit:hover {
   cursor: pointer;
+}
+
+@media screen and (max-width: 667px) {
+  .wrapper {
+    width: 95vw !important;
+    min-width: 95vw;
+  }
+
+  .container {
+    height: auto;
+  }
+
+  #description,
+  #temp-feel {
+    font-size: 1em;
+  }
+
+  #description {
+    margin-top: 68px;
+  }
+
+  #city-name {
+    font-size: 1.2em;
+  }
+
+  #temperature {
+    font-size: 3.5em;
+  }
+
+  .detail {
+    font-size: 0.9em;
+  }
+
+  #weather-icon {
+    top: -30px;
+    right: 5px;
+  }
+
+  #pressure {
+    padding-bottom: 30px;
+  }
 }
 
 
