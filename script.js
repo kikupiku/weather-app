@@ -130,7 +130,7 @@ function populateContainer(data) {
       body.style.backgroundImage = 'url(\'https://media1.giphy.com/media/2AlpjchqgwIuc/giphy.gif\')';
     break;
   }
-  weatherIcon.src = `http://openweathermap.org/img/wn/${code}@2x.png`;
+  weatherIcon.src = `https://openweathermap.org/img/wn/${code}@2x.png`;
   cityName.innerHTML = data.name + ', ' + data.sys.country;
 
   const active = document.getElementById('active');
