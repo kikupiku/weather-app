@@ -197,6 +197,7 @@ button {
 
   #description {
     margin-top: 68px;
+    position: relative;
   }
 
   #city-name {
