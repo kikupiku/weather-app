@@ -12,4 +12,4 @@ APIs used:
 
 **Live version of the app is available [HERE](https://kikupiku.github.io/weather-app/)**
 
-![gif on the project in action](https://res.cloudinary.com/kikupiku/image/upload/v1597065139/project-gifs/weather-app_dg3bmn.gif)
+![gif on the project in action](https://res.cloudinary.com/kikupiku/image/upload/v1602937856/project-gifs/weather-app_mzuyrd.gif)
